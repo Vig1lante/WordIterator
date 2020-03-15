@@ -6,14 +6,8 @@ namespace Iterator
 {
     interface IterableText
     {
-        public Iterator CharIterator()
-        {
-            return null;
-        }
+        public Iterator CharIterator();
 
-        public Iterator WordIterator()
-        {
-            return null;
-        }
+        public Iterator WordIterator();
     }
 }

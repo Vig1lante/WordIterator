@@ -6,7 +6,7 @@ namespace Iterator
 {
     class StatisticalAnalysis
     {
-        public StatisticalAnalysis(Iterator);
+        //public StatisticalAnalysis(Iterator);
 
         public int CountOf(string[] text)
         {

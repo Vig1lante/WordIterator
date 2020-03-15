@@ -2,21 +2,10 @@
 
 namespace Iterator
 {
-    interface Iterator
+    public interface Iterator
     {
-        public bool HasNext()
-        {
-            return false;
-        }
-
-        public string MoveNext()
-        {
-            return "";
-        }
-
-        public void Remove()
-        {
-
-        }
+        public bool HasNext();
+        public string MoveNext();
+        public void Remove();
     }
 }

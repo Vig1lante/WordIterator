@@ -4,18 +4,25 @@ using System.Text;
 
 namespace Iterator
 {
-    class WordIterator
+    class WordIterator : Iterator
     {
-        public WordIterator(FileContent);
+        private string[] WordsList;
+        private int CurrentIndex { get { return this.CurrentIndex; } set { this.CurrentIndex = 0; } }
+
+        public WordIterator(FileContent content) => this.WordsList = content.FileText.Split(' ');
 
         public bool HasNext()
         {
-            return true;
+            bool validateWords = (CurrentIndex < WordsList.Length) ?  true :  false;
+            return validateWords;
         }
 
         public string MoveNext()
         {
-            return "";
+            if (HasNext()){ CurrentIndex++;}
+            return WordsList[CurrentIndex]; 
         }
+
+        public void Remove() { }
     }
 }

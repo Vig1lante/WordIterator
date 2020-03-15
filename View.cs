@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Iterator
 {
-    class View
+    abstract class View
     {
         public void Print(string sampleString)
         {

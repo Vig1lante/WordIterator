@@ -2,19 +2,49 @@
 
 namespace Iterator
 {
-	public class CharIterator
+	public class CharIterator : Iterator
 	{
-		public CharIterator(FileContent);
+		private FileContent Text;
+		private int CurrentIndex { get; set; }
+		public CharIterator(FileContent content) => this.Text = content;
 
 		public bool HasNext()
 		{
-			return true;
+			Remove();
+			CurrentIndex++;
+			string fileText = Text.FileText.Trim();
+			while (Text.FileText[CurrentIndex] < fileText.Length)
+			{
+				if (!Char.IsLetter(fileText[CurrentIndex])) { CurrentIndex++; }
+				else { return true; }
+			}
+			return false;
 		}
 
 		public string MoveNext()
 		{
-			return "";
+			var currentChar = Text.FileText.Trim()[CurrentIndex].ToString();
+			if (HasNext())
+			{
+				CurrentIndex++;
+
+			}
+			return currentChar;
 		}
 
+		public void Remove()
+		{
+			string fileText = Text.FileText;
+			string newString = "";
+			for (int i = 0; i < fileText.Length; i++)
+			{
+				if (Char.IsWhiteSpace(fileText[i]))
+				{
+					continue;
+				}
+				newString += fileText[i];
+			}
+			Text.FileText = newString;
+		}
 	}
 }

@@ -11,8 +11,10 @@ namespace Iterator
 
 		public FileContent(string name)
 		{
-			this.FileName = name;
-			string file = @$"C:\Users\apaki\Desktop\C#\csharp-text-analyser-Vig1lante\{name}";
+			string currentDirectory = Environment.CurrentDirectory;
+			string root = currentDirectory.Replace("\\bin\\Debug\\netcoreapp3.1", "");
+			this.FileName = $"\\{name}";
+			string file = root + this.FileName;
 			string fileContents = File.ReadAllText(file);
 			fileContents = fileContents.Replace("\n", " ").Replace("\t", " ").Replace("\r", " ");
 			this.FileText = fileContents.ToLower();

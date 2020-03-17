@@ -5,16 +5,16 @@
         public StatisticalAnalysis(Iterator iterator) => IteratorType = iterator;
 
         public int CountOf(params string[] arguments) {
-            var countOfArgs = new int[arguments.Length];
+            int countOfArgs = 0;
             for (int i = 0; i < arguments.Length; i++){
                 var size = BaseWordOccurences;
                 while (IteratorType.HasNext()) {
                     if (!IteratorType.MoveNext().Contains(arguments[i])) {continue;}
                     size++;
                 }
-                countOfArgs[i] = size;
+                countOfArgs += size;
             }
-            return countOfArgs[0];
+            return countOfArgs;
         }
 
         public int DictionarySize() {
@@ -22,13 +22,17 @@
         }
 
         public int Size() {
-            return -1;
+            int size = 0;
+            IteratorType.Remove();
+            while (IteratorType.HasNext()) {
+                IteratorType.MoveNext();
+                size++;}
+            return size;
         }
 
         public string OccurMoreThan(int integer) {
             return "";
         }
 
-        
     }
 }

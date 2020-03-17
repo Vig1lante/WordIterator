@@ -1,16 +1,15 @@
 ﻿using System;
 using System.IO;
 
-namespace Iterator
-{
-	public class FileContent: IterableText
-	{
+namespace Iterator {
+	public class FileContent : IterableText {
 		public string FileText;
-		private string FileName;
-		private Iterator ICharIterator;
+		private readonly string FileName;
+		private readonly Iterator ICharIterator;
+		private readonly Iterator IWordIterator;
 
-		public FileContent(string name)
-		{
+
+		public FileContent(string name) {
 			string currentDirectory = Environment.CurrentDirectory;
 			string root = currentDirectory.Replace("\\bin\\Debug\\netcoreapp3.1", "");
 			this.FileName = $"\\{name}";
@@ -19,21 +18,13 @@ namespace Iterator
 			fileContents = fileContents.Replace("\n", " ").Replace("\t", " ").Replace("\r", " ");
 			this.FileText = fileContents.ToLower();
 			this.ICharIterator = new CharIterator(this);
+			this.IWordIterator = new WordIterator(this);
 		}
 
-		public Iterator CharIterator()
-		{
-			return ICharIterator;
-		}
+		public Iterator CharIterator() => ICharIterator;
 
-		public Iterator WordIterator()
-		{
-			return null;
-		}
+		public Iterator WordIterator() => IWordIterator;
 
-		public string GetFileName()
-		{
-			return FileName;
-		}
+		public string GetFileName() => FileName;
 	}
 }

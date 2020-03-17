@@ -1,14 +1,12 @@
 ﻿using System;
 
-namespace Iterator
-{
-    class Application
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
+namespace Iterator {
+    class Application {
+        static void Main(string[] args) {
             FileContent text = new FileContent(args[0]);
-            CharIterator text2 = new CharIterator(text);
+            Iterator x = text.WordIterator();
+            StatisticalAnalysis test = new StatisticalAnalysis(x);
+            Console.WriteLine(test.CountOf("x")); 
         }
     }
 }

@@ -1,26 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Iterator
-{
-    class WordIterator : Iterator
-    {
-        private string[] WordsList;
-        private int CurrentIndex { get { return this.CurrentIndex; } set { this.CurrentIndex = 0; } }
-
+﻿namespace Iterator {
+    class WordIterator : Iterator {
+        private readonly string[] WordsList;
+        private int CurrentIndex { get; set; }
         public WordIterator(FileContent content) => this.WordsList = content.FileText.Split(' ');
 
-        public bool HasNext()
-        {
-            bool validateWords = (CurrentIndex < WordsList.Length) ?  true :  false;
-            return validateWords;
-        }
+        public bool HasNext() => (CurrentIndex < WordsList.Length - 1) ? true : false;
 
-        public string MoveNext()
-        {
-            if (HasNext()){ CurrentIndex++;}
-            return WordsList[CurrentIndex]; 
+        public string MoveNext() {
+            if (HasNext()) { CurrentIndex++; }
+            return WordsList[CurrentIndex];
         }
 
         public void Remove() { }

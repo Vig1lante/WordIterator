@@ -1,22 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace Iterator
-{
-    abstract class View
-    {
-        public void Print(string sampleString)
-        {
-            
+namespace Iterator {
+    abstract class View {
+        public void Print(string sampleString) {
+
         }
-        public void Print(List<string> sampleList)
-        {
-            
+        public void Print(List<string> sampleList) {
+
         }
 
-        public void Print(Dictionary<string, int> Integer)
-        {
+        public void Print(Dictionary<string, int> Integer) {
 
         }
     }

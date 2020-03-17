@@ -1,31 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace Iterator {
+    class StatisticalAnalysis {
+        private const int BaseWordOccurences = 0;
+        private readonly Iterator IteratorType;
+        public StatisticalAnalysis(Iterator iterator) => IteratorType = iterator;
 
-namespace Iterator
-{
-    class StatisticalAnalysis
-    {
-        //public StatisticalAnalysis(Iterator);
+        public int CountOf(params string[] arguments) {
+            var countOfArgs = new int[arguments.Length];
+            for (int i = 0; i < arguments.Length; i++){
+                var size = BaseWordOccurences;
+                while (IteratorType.HasNext()) {
+                    if (!IteratorType.MoveNext().Contains(arguments[i])) {continue;}
+                    size++;
+                }
+                countOfArgs[i] = size;
+            }
+            return countOfArgs[0];
+        }
 
-        public int CountOf(string[] text)
-        {
+        public int DictionarySize() {
             return -1;
         }
 
-        public int DictionarySize()
-        {
+        public int Size() {
             return -1;
         }
 
-        public int Size()
-        {
-            return -1;
-        }
-
-        public string OccurMoreThan(int integer)
-        {
+        public string OccurMoreThan(int integer) {
             return "";
         }
+
+        
     }
 }

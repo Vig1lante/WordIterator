@@ -1,47 +1,33 @@
 ﻿using System;
 
-namespace Iterator
-{
-	public class CharIterator : Iterator
-	{
-		private FileContent Text;
+namespace Iterator {
+	public class CharIterator : Iterator {
+		private readonly FileContent Text;
 		private int CurrentIndex { get; set; }
 		public CharIterator(FileContent content) => this.Text = content;
 
-		public bool HasNext()
-		{
+		public bool HasNext() {
 			Remove();
 			CurrentIndex++;
 			string fileText = Text.FileText.Trim();
-			while (Text.FileText[CurrentIndex] < fileText.Length)
-			{
-				if (!Char.IsLetter(fileText[CurrentIndex])) { CurrentIndex++; }
+			while (Text.FileText[CurrentIndex] < fileText.Length) {
+				if (!char.IsLetter(fileText[CurrentIndex])) { CurrentIndex++; }
 				else { return true; }
-			}
-			return false;
+			} return false;
 		}
 
-		public string MoveNext()
-		{
+		public string MoveNext() {
 			var currentChar = Text.FileText.Trim()[CurrentIndex].ToString();
-			if (HasNext())
-			{
+			if (HasNext()) {
 				CurrentIndex++;
-
-			}
-			return currentChar;
+			} return currentChar;
 		}
 
-		public void Remove()
-		{
+		public void Remove() {
 			string fileText = Text.FileText;
 			string newString = "";
-			for (int i = 0; i < fileText.Length; i++)
-			{
-				if (Char.IsWhiteSpace(fileText[i]))
-				{
-					continue;
-				}
+			for (int i = 0; i < fileText.Length; i++) {
+				if (char.IsWhiteSpace(fileText[i])) {continue;}
 				newString += fileText[i];
 			}
 			Text.FileText = newString;

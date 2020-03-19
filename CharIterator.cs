@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+
 
 namespace Iterator {
 	public class CharIterator : Iterator {
@@ -7,15 +9,17 @@ namespace Iterator {
 		public CharIterator(FileContent content) => this.Text = content;
 
 		public bool HasNext() {
-			Remove(); string fileText = Text.FileText; //Where to put Remove()?
-			while (CurrentIndex < fileText.Length - 1) {
+			Remove(); string fileText = Text.FileText; 
+			while (CurrentIndex < (fileText.Length - 1)) {
 					if (Char.IsLetter(fileText[CurrentIndex + 1])) { return true; }
 					else { CurrentIndex++; }
 			} return false;
 		}
-
+		
 		public string MoveNext() {
-			CurrentIndex++; return Text.FileText.Trim()[CurrentIndex].ToString();
+			if (!CurrentIndex.Equals((Text.FileText.Length - 1))) {
+				CurrentIndex++;}
+			return Text.FileText.Trim()[CurrentIndex].ToString();
 		}
 
 		public void Remove() {
@@ -26,5 +30,6 @@ namespace Iterator {
 				newString += fileText[i];
 			} Text.FileText = newString;
 		}
+		public void Reset() => CurrentIndex = -1;
 	}
 }

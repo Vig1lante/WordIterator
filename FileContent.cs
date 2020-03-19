@@ -12,8 +12,8 @@ namespace Iterator {
 		public FileContent(string name) {
 			string currentDirectory = Environment.CurrentDirectory;
 			string root = currentDirectory.Replace("\\bin\\Debug\\netcoreapp3.1", "");
-			this.FileName = $"\\{name}";
-			string file = root + this.FileName;
+			this.FileName = $"\\{name}"; 
+			string file = root + this.FileName; //Get project root directory here
 			string fileContents = File.ReadAllText(file);
 			fileContents = fileContents.Replace("\n", " ").Replace("\t", " ").Replace("\r", " ");
 			this.FileText = fileContents.ToLower();

@@ -9,7 +9,8 @@ namespace Iterator {
 		public CharIterator(FileContent content) => this.Text = content;
 
 		public bool HasNext() {
-			Remove(); string fileText = Text.FileText; 
+			if (CurrentIndex.Equals(-1)) { Remove(); }
+			string fileText = Text.FileText; 
 			while (CurrentIndex < (fileText.Length - 1)) {
 					if (Char.IsLetter(fileText[CurrentIndex + 1])) { return true; }
 					else { CurrentIndex++; }

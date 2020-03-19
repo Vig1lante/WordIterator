@@ -13,6 +13,11 @@ namespace Iterator {
             System.Console.WriteLine(sampleInt);
 
         }
+
+        public void Print(double sampleDouble) {
+            System.Console.WriteLine(sampleDouble);
+
+        }
         public void Print(Dictionary<string, int> Integer) {
             System.Console.WriteLine(Integer);
         }

@@ -57,11 +57,11 @@ namespace Iterator {
             } return vowelNumber;
         }
 
-        public int GetVowels() {
+        public double GetVowels() {
             float stringVolume = Convert.ToSingle(Size());
             float vowelsToFloat = Convert.ToSingle(GetPercentageOfVowels());
             double final = (vowelsToFloat / stringVolume) * 100.00; // need the assignment to get that decimal
-            return (int)final;
+            return Math.Round(final);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 
 namespace Iterator {
+	//TODO class test test
 	public class CharIterator : Iterator {
 		private readonly FileContent Text;
 		private int CurrentIndex = -1; // Check zero index for HasNext()

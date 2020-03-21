@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Linq;
-
 
 namespace Iterator {
 	public class CharIterator : Iterator {
@@ -24,8 +22,7 @@ namespace Iterator {
 		}
 
 		public void Remove() {
-			string fileText = Text.FileText;
-			string newString = "";
+			string fileText = Text.FileText; string newString = "";
 			for (int i = 0; i < fileText.Length; i++) {
 				if (Char.IsWhiteSpace(fileText[i])) {continue;}
 				newString += fileText[i];

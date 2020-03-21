@@ -12,11 +12,11 @@ namespace Iterator {
         public int CountOf(params string[] arguments) {
             IteratorType.Reset(); int countOfArgs = BaseForOccurences;
             for (int i = 0; i < arguments.Length; i++){
-                var size = BaseForOccurences;
+                var iteratedSize = BaseForOccurences;
                 while (IteratorType.HasNext()) {
                     if (!IteratorType.MoveNext().Contains(arguments[i])) {continue;}
-                    size++;
-                } countOfArgs += size;
+                    iteratedSize++;
+                } countOfArgs += iteratedSize;
             } return countOfArgs;
         }
 
@@ -41,9 +41,9 @@ namespace Iterator {
         public string OccurMoreThan(int integer) {
             IteratorType.Reset(); string wordsMoreThan = "";
             var wordBase = MakeDict();
-            foreach (string x in wordBase.Keys) {
-                if (wordBase[x] > integer) {wordsMoreThan+= $"{x} ";}
-            } if (wordsMoreThan == "") { return "No words found"; }
+            foreach (string word in wordBase.Keys) {
+                if (wordBase[word] > integer) {wordsMoreThan+= $"{word} ";}
+            } if (wordsMoreThan == "") { return "No words found..."; }
             return wordsMoreThan;
         }
         
@@ -60,8 +60,8 @@ namespace Iterator {
         public double GetVowels() {
             float stringVolume = Convert.ToSingle(Size());
             float vowelsToFloat = Convert.ToSingle(GetPercentageOfVowels());
-            double final = (vowelsToFloat / stringVolume) * 100.00; // need the assignment to get that decimal
-            return Math.Round(final);
+            double finalPercentage = (vowelsToFloat / stringVolume) * 100.00; // need the assignment to get that decimal
+            return Math.Round(finalPercentage);
         }
     }
 }
